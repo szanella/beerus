@@ -1,0 +1,60 @@
+// a. Base
+// b. Global
+
+// a. Base
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+// This is the default html and body font-size for the base rem value.
+$rem-base: 16;
+
+// The default font-size is set to 100% of the browser style sheet (usually 16px)
+$base-font-size: 16px;
+// The $base-font-size is 100% while $base-line-height is 150%
+$base-line-height: 100%;
+
+// b. Global
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
+// We use these to define default font weights
+$font-weight-normal: 400;
+$font-weight-bold: 600;
+
+// Font families
+$roboto: 'Roboto';
+
+// We use these to control various global styles
+$body-font-color: #000000;
+$body-font-family: $roboto, sans-serif;
+$body-font-weight: $font-weight-normal;
+$body-font-style: normal;
+
+// We use this to control font-smoothing
+$font-smoothing: antialiased;
+
+// Colours
+$body-background: #f3f3f3;
+$header-background: #000000;
+$primary-colour: #f5cb2e;
+$white: #ffffff;
+$inactive-link-colour: #868683;
+
+// Semantically significant colours
+
+//$shadow-color: rgba(0, 0, 0, 0.33);
+
+// Global font sizes
+$font-size-label: 87.5%;        // 14px
+$font-size-p: 100%;             // 16px
+$font-size-h4: 112.5%;          // 18px
+$font-size-h2: 131.25%;         // 21px
+
+
+// Margins
+$smaller-margin: 0.5rem;
+$small-margin: 1rem;
+$medium-margin: 2rem;
+
+// Radius values
+//$container-radius: 4px;
+//$button-radius: 2px;
+
+$content-width: 800px;

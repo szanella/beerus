@@ -1,0 +1,93 @@
+@import "./settings.scss";
+
+/*
+  Index:
+  - General rules
+  - Typography
+*/
+
+// General rules
+html, body {
+  background-color: $body-background;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  line-height: $base-line-height;
+  overflow-y: hidden;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: $body-font-family;
+}
+
+*:focus {
+  outline: 0;
+}
+
+body {
+  font-family: $body-font-family;
+  font-weight: $font-weight-normal;
+  color: $body-font-color;
+  height: 100%;
+  font-size: $base-font-size;
+}
+
+[hidden] {
+  visibility: hidden;
+}
+
+p {
+  white-space: pre-wrap;
+}
+
+svg|title {
+  pointer-events: none;
+}
+
+a {
+  color: $body-font-color;
+  text-decoration: none;
+}
+
+// Typography
+
+h2 {
+  color: $body-font-color;
+  font-family: $body-font-family;
+  font-size: $font-size-h2;
+  font-weight: $font-weight-normal;
+  margin: 0;
+}
+
+h4 {
+  color: $body-font-color;
+  font-family: $body-font-family;
+  font-size: $font-size-h4;
+  font-weight: $font-weight-normal;
+  margin: 0;
+}
+
+p {
+  color: $body-font-color;
+  font-family: $body-font-family;
+  font-size: $font-size-p;
+  font-weight: $font-weight-normal;
+  line-height: 1.2;
+  margin: 0;
+}
+
+label {
+  color: $body-font-color;
+  font-family: $body-font-family;
+  font-size: $font-size-label;
+  font-weight: $font-weight-normal;
+  line-height: 1;
+  margin: 0;
+}

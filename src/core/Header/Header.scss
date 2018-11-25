@@ -1,0 +1,41 @@
+@import "../../assets/scss/settings";
+
+.header {
+  background-color: $header-background;
+  padding: $medium-margin 0;
+  width: 100%;
+
+  &__content {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto;
+    max-width: $content-width;
+
+    & > * {
+      &:first-child {
+        flex: 1 1 auto;
+      }
+    }
+
+    a {
+      border: 1px solid $inactive-link-colour;
+      color: $inactive-link-colour;
+      padding: 5px;
+
+      &:not(:last-of-type) {
+        margin-right: $smaller-margin;
+      }
+
+      &.active, &:hover {
+        border-color: $white;
+        color: $white;
+      }
+    }
+
+    &__logo {
+      color: $primary-colour;
+      text-transform: uppercase;
+    }
+  }
+}

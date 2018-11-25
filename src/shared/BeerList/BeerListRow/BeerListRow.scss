@@ -1,0 +1,29 @@
+@import "../../../assets/scss/settings";
+
+.beer-list-row {
+  align-items: center;
+  background-color: $white;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  height: 64px;
+  margin: $smaller-margin 0;
+  padding: 0 $smaller-margin;
+
+  &__name {
+    flex: 1 1 0;
+  }
+
+  &__abv {
+    display: none;
+  }
+
+  &:hover {
+    background-color: $primary-colour;
+    color: $white;
+  }
+
+  &:hover &__abv {
+    display: block;
+  }
+}
