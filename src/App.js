@@ -3,14 +3,16 @@ import './App.scss';
 import { BrowserRouter, Route } from 'react-router-dom';
 import Home from './Home/Home';
 import Header from './core/Header/Header';
+import Details from './Details/Details';
 
 class App extends React.Component {
   render() {
     return (
       <BrowserRouter>
-        <div className="App">
+        <div className="app">
           <Header />
           <Route exact path='/' component={Home} />
+          <Route path='/details/:id' component={Details} />
         </div>
       </BrowserRouter>
     );

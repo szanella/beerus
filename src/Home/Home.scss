@@ -1,6 +1,6 @@
 @import "../assets/scss/settings";
+@import "../assets/scss/mixins";
 
 .home {
-  margin: 0 auto;
-  max-width: $content-width;
+  @include app-content();
 }

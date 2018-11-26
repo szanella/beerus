@@ -9,7 +9,11 @@ class Home extends React.Component {
 
     this.state = {
       beers: [],
-      loading: false
+      loading: false,
+      queryString: {
+        page: 1,
+        perPage: 10
+      }
     };
   }
 
@@ -18,11 +22,17 @@ class Home extends React.Component {
   }
 
   getBeers() {
-    axios.get('https://api.punkapi.com/v2/beers')
+    this.setState({
+      loading: true
+    });
+    axios.get(`https://api.punkapi.com/v2/beers?page=${this.state.queryString.page}&per_page=${this.state.queryString.perPage}`)
       .then(res => {
         const beers = res.data;
 
-        this.setState({beers});
+        this.setState({
+          beers,
+          loading: false
+        });
       });
   }
 
@@ -30,7 +40,7 @@ class Home extends React.Component {
   render() {
     return (
       <div className="home">
-        <BeerList beers={this.state.beers} />
+        { this.state.loading ? <div>Loading</div> : <BeerList beers={this.state.beers} /> }
       </div>
   );
   }
