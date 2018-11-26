@@ -2,6 +2,7 @@ import React from 'react';
 import * as axios from 'axios';
 import BeerList from '../shared/BeerList/BeerList';
 import './Home.scss';
+import {DebounceInput} from 'react-debounce-input';
 
 class Home extends React.Component {
   constructor(props) {
@@ -10,11 +11,15 @@ class Home extends React.Component {
     this.state = {
       beers: [],
       loading: false,
-      queryString: {
+      queryParams: {
+        beer_name: '',
+        food: '',
         page: 1,
-        perPage: 10
+        per_page: 10
       }
     };
+
+    this.onFilterChanged = this.onFilterChanged.bind(this);
   }
 
   componentDidMount() {
@@ -25,7 +30,8 @@ class Home extends React.Component {
     this.setState({
       loading: true
     });
-    axios.get(`https://api.punkapi.com/v2/beers?page=${this.state.queryString.page}&per_page=${this.state.queryString.perPage}`)
+    const params = this.composeQuery();
+    axios.get(`https://api.punkapi.com/v2/beers`, {params})
       .then(res => {
         const beers = res.data;
 
@@ -36,13 +42,65 @@ class Home extends React.Component {
       });
   }
 
+  onFilterChanged(fieldName, value) {
+    this.setState({
+      queryParams: {
+        ...this.state.queryParams,
+        [fieldName]: value
+      }
+    });
+    console.log(this.state);
+    this.getBeers();
+  }
+
+  composeQuery() {
+    const params = {};
+    for (let key in this.state.queryParams) {
+      if (this.state.queryParams.hasOwnProperty(key) && this.state.queryParams[key]) {
+        params[key] = this.state.queryParams[key];
+      }
+    }
+    return params;
+  }
 
   render() {
     return (
       <div className="home">
-        { this.state.loading ? <div>Loading</div> : <BeerList beers={this.state.beers} /> }
+        <div className="home__search-filters">
+          <div className="home__search-filters__content">
+            <div className="home__search-filters__content__filter home__search-filters__content__filter--home">
+              <DebounceInput
+                debounceTimeout={250}
+                placeholder='Filtra per nome'
+                onChange={event => this.onFilterChanged('beer_name', event.target.value)}/>
+            </div>
+            <div className="home__search-filters__content__filter home__search-filters__content__filter--food">
+              <DebounceInput
+                debounceTimeout={250}
+                placeholder='Filtra per abbinamento'
+                onChange={event => this.onFilterChanged('food', event.target.value)}/>
+            </div>
+            <div className="home__search-filters__content__filter home__search-filters__content__filter--abv-gt">
+              <DebounceInput
+                debounceTimeout={250}
+                placeholder='Da'
+                type='number'
+                onChange={event => this.onFilterChanged('abv_gt', event.target.value)}/>
+            </div>
+            <div className="home__search-filters__content__filter home__search-filters__content__filter--abv-lt">
+              <DebounceInput
+                debounceTimeout={250}
+                placeholder='A'
+                type='number'
+                onChange={event => this.onFilterChanged('abv_lt', event.target.value)}/>
+            </div>
+          </div>
+        </div>
+        <div className="home__content">
+          {this.state.loading ? <div>Loading</div> : <BeerList beers={this.state.beers}/>}
+        </div>
       </div>
-  );
+    );
   }
 }
 
