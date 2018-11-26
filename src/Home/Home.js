@@ -71,12 +71,9 @@ class Home extends React.Component {
     if (this.state.loading) {
       content = <div>Loading</div>
     } else {
-      content = <>
-        <BeerCount beers={this.state.beers}/>
-        <BeerList beers={this.state.beers}/>
-      </>;
+      content = <BeerList beers={this.state.beers}/>;
     }
-
+    
     return (
       <div className="home">
         <SearchBar onFilterChanged={this.onFilterChanged}/>
