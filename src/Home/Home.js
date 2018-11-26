@@ -4,6 +4,8 @@ import BeerList from '../shared/BeerList/BeerList';
 import './Home.scss';
 import {DebounceInput} from 'react-debounce-input';
 import SearchFilter from '../shared/SearchFilter/SearchFilter';
+import SearchBar from './SearchBar/SearchBar';
+import BeerCount from '../shared/BeerList/BeerCount/BeerCount';
 
 class Home extends React.Component {
   constructor(props) {
@@ -65,36 +67,21 @@ class Home extends React.Component {
   }
 
   render() {
+    let content;
+    if (this.state.loading) {
+      content = <div>Loading</div>
+    } else {
+      content = <>
+        <BeerCount beers={this.state.beers}/>
+        <BeerList beers={this.state.beers}/>
+      </>;
+    }
+
     return (
       <div className="home">
-        <div className="home__search-filters">
-          <div className="home__search-filters__content">
-            <div className="home__search-filters__content__filter home__search-filters__content__filter--home">
-              <SearchFilter name='beer_name'
-                            placeholder='Filtra per nome'
-                            onFilterChanged={this.onFilterChanged} />
-            </div>
-            <div className="home__search-filters__content__filter home__search-filters__content__filter--food">
-              <SearchFilter name='food'
-                            placeholder='Filtra per abbinamento'
-                            onFilterChanged={this.onFilterChanged} />
-            </div>
-            <div className="home__search-filters__content__filter home__search-filters__content__filter--abv-gt">
-              <SearchFilter name='abv_gt'
-                            number
-                            placeholder='Da'
-                            onFilterChanged={this.onFilterChanged} />
-            </div>
-            <div className="home__search-filters__content__filter home__search-filters__content__filter--abv-lt">
-              <SearchFilter name='abv_lt'
-                            number
-                            placeholder='A'
-                            onFilterChanged={this.onFilterChanged} />
-            </div>
-          </div>
-        </div>
+        <SearchBar onFilterChanged={this.onFilterChanged}/>
         <div className="home__content">
-          {this.state.loading ? <div>Loading</div> : <BeerList beers={this.state.beers}/>}
+          {content}
         </div>
       </div>
     );
