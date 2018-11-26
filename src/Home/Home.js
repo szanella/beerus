@@ -3,6 +3,7 @@ import * as axios from 'axios';
 import BeerList from '../shared/BeerList/BeerList';
 import './Home.scss';
 import {DebounceInput} from 'react-debounce-input';
+import SearchFilter from '../shared/SearchFilter/SearchFilter';
 
 class Home extends React.Component {
   constructor(props) {
@@ -69,30 +70,26 @@ class Home extends React.Component {
         <div className="home__search-filters">
           <div className="home__search-filters__content">
             <div className="home__search-filters__content__filter home__search-filters__content__filter--home">
-              <DebounceInput
-                debounceTimeout={250}
-                placeholder='Filtra per nome'
-                onChange={event => this.onFilterChanged('beer_name', event.target.value)}/>
+              <SearchFilter name='beer_name'
+                            placeholder='Filtra per nome'
+                            onFilterChanged={this.onFilterChanged} />
             </div>
             <div className="home__search-filters__content__filter home__search-filters__content__filter--food">
-              <DebounceInput
-                debounceTimeout={250}
-                placeholder='Filtra per abbinamento'
-                onChange={event => this.onFilterChanged('food', event.target.value)}/>
+              <SearchFilter name='food'
+                            placeholder='Filtra per abbinamento'
+                            onFilterChanged={this.onFilterChanged} />
             </div>
             <div className="home__search-filters__content__filter home__search-filters__content__filter--abv-gt">
-              <DebounceInput
-                debounceTimeout={250}
-                placeholder='Da'
-                type='number'
-                onChange={event => this.onFilterChanged('abv_gt', event.target.value)}/>
+              <SearchFilter name='abv_gt'
+                            number
+                            placeholder='Da'
+                            onFilterChanged={this.onFilterChanged} />
             </div>
             <div className="home__search-filters__content__filter home__search-filters__content__filter--abv-lt">
-              <DebounceInput
-                debounceTimeout={250}
-                placeholder='A'
-                type='number'
-                onChange={event => this.onFilterChanged('abv_lt', event.target.value)}/>
+              <SearchFilter name='abv_lt'
+                            number
+                            placeholder='A'
+                            onFilterChanged={this.onFilterChanged} />
             </div>
           </div>
         </div>

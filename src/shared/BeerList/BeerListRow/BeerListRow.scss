@@ -9,6 +9,7 @@
   height: 56px;
   margin: $smaller-margin 0;
   padding: 0 $smaller-margin;
+  transition: all $transitions-duration ease-out;
 
   &__name {
     flex: 1 1 0;
@@ -21,6 +22,7 @@
   &:hover {
     background-color: $primary-colour;
     color: $white;
+    transition-timing-function: ease-in;
   }
 
   &:hover &__abv {
