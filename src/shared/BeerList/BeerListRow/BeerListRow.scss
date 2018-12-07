@@ -1,6 +1,8 @@
 @import "../../../assets/scss/settings";
+@import "../../../assets/scss/mixins";
 
 .beer-list-row {
+  @include smooth-hover();
   align-items: center;
   background-color: $white;
   cursor: pointer;
@@ -8,7 +10,6 @@
   flex-direction: row;
   height: 56px;
   padding: 0 $small-margin;
-  transition: all $transitions-duration ease-out;
 
   &:not(:last-of-type) {
     margin-bottom: $smaller-margin;
@@ -26,7 +27,6 @@
   &:hover {
     background-color: $primary-colour;
     color: $white;
-    transition-timing-function: ease-in;
   }
 
   &:hover &__abv {

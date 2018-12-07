@@ -24,3 +24,11 @@
   max-width: $content-width;
   margin: 0 auto;
 }
+
+@mixin smooth-hover() {
+  transition: all $transitions-duration ease-out;
+
+  &:hover {
+    transition-timing-function: ease-in;
+  }
+}

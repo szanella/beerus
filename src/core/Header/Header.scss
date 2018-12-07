@@ -19,10 +19,10 @@
     }
 
     a {
+      @include smooth-hover();
       border: 1px solid $inactive-link-colour;
       color: $inactive-link-colour;
       padding: 5px;
-      transition: all $transitions-duration ease-out;
 
       &:not(:last-of-type) {
         margin-right: $smaller-margin;
@@ -31,7 +31,6 @@
       &.active, &:hover {
         border-color: $white;
         color: $white;
-        transition-timing-function: ease-in;
       }
     }
 
