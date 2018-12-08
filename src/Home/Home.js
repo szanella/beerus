@@ -2,10 +2,7 @@ import React from 'react';
 import * as axios from 'axios';
 import BeerList from '../shared/BeerList/BeerList';
 import './Home.scss';
-import {DebounceInput} from 'react-debounce-input';
-import SearchFilter from '../shared/SearchFilter/SearchFilter';
 import SearchBar from './SearchBar/SearchBar';
-import BeerCount from '../shared/BeerList/BeerCount/BeerCount';
 
 class Home extends React.Component {
   constructor(props) {
@@ -52,7 +49,6 @@ class Home extends React.Component {
         [fieldName]: value
       }
     });
-    console.log(this.state);
     this.getBeers();
   }
 

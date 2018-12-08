@@ -58,20 +58,12 @@ a {
 
 // Typography
 
-h2 {
-  color: $body-font-color;
-  font-family: $body-font-family;
-  font-size: $font-size-h2;
-  font-weight: $font-weight-normal;
+h1 {
+  color: $primary-colour;
+  font-size: $font-size-h1;
+  font-weight: $font-weight-bold;
   margin: 0;
-}
-
-h4 {
-  color: $body-font-color;
-  font-family: $body-font-family;
-  font-size: $font-size-h4;
-  font-weight: $font-weight-normal;
-  margin: 0;
+  text-transform: uppercase;
 }
 
 p {

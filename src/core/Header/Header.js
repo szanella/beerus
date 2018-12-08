@@ -23,7 +23,7 @@ class Header extends React.Component {
           <div>
             {
               this.props.location.pathname === '/' ?
-                <h1 className='header__content__logo'>Brewdog</h1> :
+                <h1>Brewdog</h1> :
                 <NavLink exact to="/">Tutte le birre</NavLink>
             }
           </div>
