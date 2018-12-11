@@ -1,16 +1,16 @@
 import React from 'react';
-import * as axios from 'axios';
 import BeerList from '../shared/BeerList/BeerList';
 import './Home.scss';
 import SearchBar from './SearchBar/SearchBar';
+import {getBeers, getBeersLoading} from '../redux/selectors';
+import {connect} from 'react-redux';
+import {fetchBeersPage} from '../redux/actions';
 
 class Home extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      beers: [],
-      loading: false,
       queryParams: {
         beer_name: '',
         food: '',
@@ -23,51 +23,26 @@ class Home extends React.Component {
   }
 
   componentDidMount() {
-    this.getBeers();
-  }
-
-  getBeers() {
-    this.setState({
-      loading: true
-    });
-    const params = this.composeQuery();
-    axios.get(`https://api.punkapi.com/v2/beers`, {params})
-      .then(res => {
-        const beers = res.data;
-
-        this.setState({
-          beers,
-          loading: false
-        });
-      });
+    this.props.loadBeersPage(this.state.queryParams);
   }
 
   onFilterChanged(fieldName, value) {
     this.setState({
       queryParams: {
         ...this.state.queryParams,
-        [fieldName]: value
+        [fieldName]: value,
+        page: 1
       }
     });
-    this.getBeers();
-  }
-
-  composeQuery() {
-    const params = {};
-    for (let key in this.state.queryParams) {
-      if (this.state.queryParams.hasOwnProperty(key) && this.state.queryParams[key]) {
-        params[key] = this.state.queryParams[key];
-      }
-    }
-    return params;
+    this.props.loadBeersPage(this.state.queryParams);
   }
 
   render() {
     let content;
-    if (this.state.loading) {
+    if (this.props.loading) {
       content = <div>Loading</div>
     } else {
-      content = <BeerList beers={this.state.beers}/>;
+      content = <BeerList beers={this.props.beers}/>;
     }
     
     return (
@@ -81,4 +56,17 @@ class Home extends React.Component {
   }
 }
 
-export default Home;
+const mapStateToProps = state => {
+  const beers = getBeers(state);
+  const loading = getBeersLoading(state);
+  return {
+    beers,
+    loading
+  };
+};
+
+const mapDispatchToProps = (dispatch, ownProps) => ({
+  loadBeersPage: query => dispatch(fetchBeersPage(query))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);
