@@ -1,16 +1,9 @@
 import React from 'react';
 
-class DetailsHeading extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+const DetailsHeading = props => (
+  <div className='details-heading'>
+    <h1>{props.beer && props.beer.id}</h1>
+  </div>
+);
 
-  render() {
-
-    return (
-      <div className='details-heading'>
-        <h1>{this.props}</h1>
-      </div>
-    );
-  }
-}
+export default DetailsHeading;

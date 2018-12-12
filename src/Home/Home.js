@@ -39,7 +39,7 @@ class Home extends React.Component {
 
   render() {
     let content;
-    if (this.props.loading) {
+    if (this.props.beersLoading) {
       content = <div>Loading</div>
     } else {
       content = <BeerList beers={this.props.beers}/>;
@@ -58,10 +58,10 @@ class Home extends React.Component {
 
 const mapStateToProps = state => {
   const beers = getBeers(state);
-  const loading = getBeersLoading(state);
+  const beersLoading = getBeersLoading(state);
   return {
     beers,
-    loading
+    beersLoading
   };
 };
 

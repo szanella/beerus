@@ -1,4 +1,4 @@
-import {RECEIVE_BEERS_PAGE, REQUEST_BEERS_PAGE} from './actionTypes';
+import {RECEIVE_BEER_DETAILS, RECEIVE_BEERS_PAGE, REQUEST_BEER_DETAILS, REQUEST_BEERS_PAGE} from './actionTypes';
 import * as axios from 'axios';
 
 export const requestBeersPage = query => ({
@@ -23,6 +23,29 @@ export const fetchBeersPage = query => {
       )
       .then(json => dispatch(receiveBeersPage(json)));
   };
+};
+
+export const requestBeerDetails = id => ({
+  type: REQUEST_BEER_DETAILS,
+  id
+});
+
+export const receiveBeerDetails = beer => ({
+  type: RECEIVE_BEER_DETAILS,
+  beer
+});
+
+export const fetchBeerDetails = id => {
+  return dispatch => {
+    dispatch(requestBeerDetails(id));
+
+    return axios.get(`https://api.punkapi.com/v2/beers/${id}`)
+      .then(
+        response => response.data[0],
+        error => console.error(error)
+      )
+      .then(json => dispatch(receiveBeerDetails(json)));
+  }
 };
 
 
