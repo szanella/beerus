@@ -1,7 +1,56 @@
 @import "../../assets/scss/settings";
+@import "../../assets/scss/mixins";
 
 .details-heading {
   background-color: $header-background;
+  min-height: 280px;
   padding: $medium-margin;
+  position: relative;
   width: 100%;
+
+  &__content {
+    @include app-content();
+  }
+
+  &__beer-nav {
+    @include smooth-hover();
+    align-items: center;
+    cursor: pointer;
+    display: flex;
+    height: 48px;
+    margin-top: -24px;
+    padding: 8px;
+    position: absolute;
+    top: 50%;
+    width: 150px;
+
+    &--prev {
+      justify-content: flex-start;
+      left: 0;
+    }
+    &--next {
+      justify-content: flex-end;
+      right: 0;
+    }
+
+    i {
+      color: $body-font-color;
+      font-size: 36px;
+    }
+    span {
+      color: $header-background;
+      display: none;
+      font-size: $font-size-label;
+    }
+
+    &:hover {
+      background-color: $primary-colour;
+      i {
+        color: $header-background;
+      }
+      span {
+        display: inline;
+      }
+    }
+  }
 }

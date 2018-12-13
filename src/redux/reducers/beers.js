@@ -19,7 +19,7 @@ export default function (state = initialState, action) {
       return {
         ...state,
         allIds: resetBeers ? [] : state.allIds,
-        byIds: resetBeers ? [] : state.byIds,
+        byIds: resetBeers ? {} : state.byIds,
         beersLoading: true
       };
     }
@@ -35,26 +35,26 @@ export default function (state = initialState, action) {
       };
     }
     case REQUEST_BEER_DETAILS: {
-      return {
-        ...state,
-        currentBeer: null,
-        previousBeer: null,
-        nextBeer: null,
-        detailsLoading: true
-      };
-    }
-    case RECEIVE_BEER_DETAILS: {
-      const {beer} = action;
-      const beers = getBeers(state);
-      const beerIndex = beers.findIndex(aBeer => aBeer.id === beer.id);
+      const beerId = +action.id;
+      const beers = state.allIds.map(id => state.byIds[id]);
+      const beerIndex = beers.findIndex(aBeer => aBeer.id === beerId);
       const previousBeer = beerIndex != null && beerIndex > 0 ? beers[beerIndex - 1] : null;
       const nextBeer = beerIndex != null && beerIndex < beers.length - 1 ? beers[beerIndex + 1] : null;
 
       return {
         ...state,
+        currentBeer: null,
+        previousBeer,
+        nextBeer,
+        detailsLoading: true
+      };
+    }
+    case RECEIVE_BEER_DETAILS: {
+      const {beer} = action;
+
+      return {
+        ...state,
         currentBeer: beer,
-        previousBeer: previousBeer,
-        nextBeer: nextBeer,
         detailsLoading: false
       };
     }

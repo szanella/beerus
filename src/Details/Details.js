@@ -10,9 +10,17 @@ class Details extends React.Component {
     this.props.loadBeerDetails(this.props.match.params.id);
   }
 
+  componentDidUpdate(prevProps) {
+    if (this.props.match.params.id !== prevProps.match.params.id) {
+      this.props.loadBeerDetails(this.props.match.params.id);
+    }
+  }
+
   render() {
     return (
-      <DetailsHeading beer={this.props.currentBeer} />
+      <DetailsHeading beer={this.props.currentBeer}
+                      previousBeer={this.props.previousBeer}
+                      nextBeer={this.props.nextBeer} />
     );
   }
 }
