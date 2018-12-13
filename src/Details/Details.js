@@ -1,6 +1,6 @@
 import React from 'react';
 import './Details.scss';
-import {getBeers, getCurrentBeer, getNextBeer, getPreviousBeer} from '../redux/selectors';
+import {getCurrentBeer, getNextBeer, getPreviousBeer} from '../redux/selectors';
 import {connect} from 'react-redux';
 import {fetchBeerDetails} from '../redux/actions';
 import DetailsHeading from './DetailsHeading/DetailsHeading';

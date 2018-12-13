@@ -1,5 +1,4 @@
 import {RECEIVE_BEER_DETAILS, RECEIVE_BEERS_PAGE, REQUEST_BEER_DETAILS, REQUEST_BEERS_PAGE} from '../actionTypes';
-import {getBeers} from '../selectors';
 
 const initialState = {
   allIds: [],
