@@ -19,11 +19,11 @@ $font-weight-normal: 400;
 $font-weight-bold: 600;
 
 // Font families
-$roboto: 'Roboto';
+$roboto-slab: 'Roboto Slab';
 
 // We use these to control various global styles
 $body-font-color: #7b7a75;
-$body-font-family: $roboto, sans-serif;
+$body-font-family: $roboto-slab, sans-serif;
 $body-font-weight: $font-weight-normal;
 $body-font-style: normal;
 
@@ -58,5 +58,6 @@ $medium-margin: 2rem;
 //$container-radius: 4px;
 //$button-radius: 2px;
 
-$content-width: 1024px;
+$content-width: 900px;
+$beer-nav-button-width: 120px;
 $transitions-duration: 150ms;
