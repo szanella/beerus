@@ -8,7 +8,7 @@
   cursor: pointer;
   display: flex;
   flex-direction: row;
-  height: 56px;
+  height: $list-row-height;
   padding: 0 $small-margin;
 
   &:not(:last-of-type) {

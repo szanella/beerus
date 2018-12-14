@@ -3,8 +3,19 @@
 
 .details {
   &__content {
-    display: flex;
     padding: $small-margin 0;
+
+    &__top {
+      display: flex;
+    }
+
+    &__banner {
+      align-items: center;
+      background-color: $primary-colour;
+      color: $white;
+      display: flex;
+      justify-content: center;
+    }
   }
 }
 
@@ -12,15 +23,29 @@
   .details {
     &__content {
       @include app-content();
-      justify-content: space-between;
 
-      &__description {
-        max-width: $content-width - $beer-image-circle-diameter - $large-margin;
+      &__top {
+        justify-content: space-between;
+        min-height: ($beer-image-circle-diameter * 1.5) / 2;
+
+        &__description {
+          max-width: $content-width - $beer-image-circle-diameter - $large-margin;
+        }
+
+        .beer-image {
+          margin-top: -$medium-margin - ($beer-image-circle-diameter / 2);
+          z-index: 2;
+        }
       }
 
-      .beer-image {
-        margin-top: -$medium-margin - ($beer-image-circle-diameter / 2);
-        z-index: 2;
+      &__banner {
+        height: $list-row-height;
+        margin-top: $medium-margin;
+
+        span {
+          flex: 0 0 auto;
+          margin: 0 $small-margin;
+        }
       }
     }
   }
@@ -29,11 +54,14 @@
 @media (max-width: $details-layout-threshold) {
   .details {
     &__content {
-      flex-flow: column-reverse;
-      align-items: center;
+      &__top {
 
-      .beer-image {
-        margin: ($beer-image-circle-diameter * 0.25 + $small-margin) 0;
+        flex-flow: column-reverse;
+        align-items: center;
+
+        .beer-image {
+          margin: ($beer-image-circle-diameter * 0.25 + $small-margin) 0;
+        }
       }
     }
   }

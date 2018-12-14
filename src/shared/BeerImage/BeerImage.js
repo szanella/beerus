@@ -3,7 +3,7 @@ import './BeerImage.scss';
 
 const BeerImage = ({beer}) => (
   <div className='beer-image'>
-    <img alt='Beer image' src={beer.image_url} />
+    {beer && <img alt='Beer image' src={beer.image_url} />}
   </div>
 );
 

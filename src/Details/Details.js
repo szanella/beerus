@@ -4,7 +4,7 @@ import {getCurrentBeer, getDetailsLoading, getNextBeer, getPreviousBeer} from '.
 import {connect} from 'react-redux';
 import {fetchBeerDetails} from '../redux/actions';
 import DetailsHeading from './DetailsHeading/DetailsHeading';
-import BeerImage from './BeerImage/BeerImage';
+import BeerImage from '../shared/BeerImage/BeerImage';
 
 class Details extends React.Component {
   componentDidMount() {
@@ -19,17 +19,15 @@ class Details extends React.Component {
 
   render() {
     const {currentBeer, previousBeer, nextBeer, detailsLoading} = this.props;
-    let content;
+    let descriptionContent;
+
     if (detailsLoading) {
-      content = <div>Loading</div>;
+      descriptionContent = <div>Loading</div>;
     } else {
-      content = currentBeer && (
+      descriptionContent = currentBeer && (
         <>
-          <div className='details__content__description'>
-            <h2>Description</h2>
-            <p>{currentBeer.description}</p>
-          </div>
-          <BeerImage beer={currentBeer} />
+          <h2>Description</h2>
+          <p>{currentBeer.description}</p>
         </>
       );
     }
@@ -39,7 +37,23 @@ class Details extends React.Component {
                         previousBeer={previousBeer}
                         nextBeer={nextBeer}/>
         <div className='details__content'>
-          {content}
+          <div className='details__content__top'>
+            <div className='details__content__top__description'>
+              {descriptionContent}
+            </div>
+            <BeerImage beer={currentBeer}/>
+          </div>
+            <div className='details__content__banner'>
+              {!detailsLoading && currentBeer && (
+                <>
+                  <span>{`ABV: ${currentBeer.abv}%`}</span>
+                  <span>{`SRM: ${currentBeer.srm}`}</span>
+                  <span>{`EBC: ${currentBeer.ebc}`}</span>
+                  <span>{`IBU: ${currentBeer.ibu}`}</span>
+                  <span>{`PH: ${currentBeer.ph}`}</span>
+                </>
+              )}
+            </div>
         </div>
       </div>
     );

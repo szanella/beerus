@@ -62,6 +62,9 @@ $large-margin: 32px;
 $content-width: 900px;
 $transitions-duration: 150ms;
 
+// Home variables
+$list-row-height: 56px;
+
 // Details page variables
 $beer-nav-button-width: 120px;
 $details-layout-threshold: $content-width + ($beer-nav-button-width * 2) + 20px;
