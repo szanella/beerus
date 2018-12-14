@@ -18,9 +18,25 @@
 
   &__food {
     background-color: $body-background;
+    padding: $medium-margin 0;
 
     &__content {
       @include app-content();
+
+      h2 {
+        margin-bottom: $small-margin;
+      }
+
+      &__food-boxes {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-row-gap: $medium-margin;
+
+        &__food-box {
+          flex: 1 0 auto;
+          max-width: 25%;
+        }
+      }
     }
   }
 }

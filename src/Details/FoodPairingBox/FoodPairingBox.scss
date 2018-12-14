@@ -1,0 +1,13 @@
+@import '../../assets/scss/settings';
+
+.food-pairing-box {
+  align-items: center;
+  background-color: $white;
+  box-shadow: 8px 8px 0 $primary-colour;
+  display: flex;
+  font-size: $font-size-label;
+  height: $food-pairing-box-width;
+  justify-content: center;
+  padding: $medium-margin;
+  width: $food-pairing-box-width;
+}

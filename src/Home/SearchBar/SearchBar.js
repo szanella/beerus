@@ -12,7 +12,7 @@ const SearchBar = props => (
       </div>
       <div className="search-bar__content__filter search-bar__content__filter--food">
         <SearchFilter name='food'
-                      placeholder='Filter by food'
+                      placeholder='Filter by food pairing'
                       onFilterChanged={props.onFilterChanged} />
       </div>
       <div className="search-bar__content__filter search-bar__content__filter--abv-gt">

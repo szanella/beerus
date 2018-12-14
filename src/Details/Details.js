@@ -5,6 +5,7 @@ import {connect} from 'react-redux';
 import {fetchBeerDetails} from '../redux/actions';
 import DetailsHeading from './DetailsHeading/DetailsHeading';
 import BeerImage from '../shared/BeerImage/BeerImage';
+import FoodPairingBox from './FoodPairingBox/FoodPairingBox';
 
 class Details extends React.Component {
   componentDidMount() {
@@ -31,6 +32,7 @@ class Details extends React.Component {
         </>
       );
     }
+
     return (
       <div className='details'>
         <DetailsHeading beer={currentBeer}
@@ -56,7 +58,16 @@ class Details extends React.Component {
           </div>
           <div className='details__food'>
             <div className='details__food__content'>
-
+              <h2>Food pairings</h2>
+              <div className='details__food__content__food-boxes'>
+                {!detailsLoading && currentBeer && (
+                  currentBeer.food_pairing.map(food_pairing => (
+                    <div className='details__food__content__food-boxes__food-box'>
+                      <FoodPairingBox foodPairing={food_pairing}/>
+                    </div>
+                  ))
+                )}
+              </div>
             </div>
           </div>
         </div>
