@@ -36,24 +36,29 @@ class Details extends React.Component {
         <DetailsHeading beer={currentBeer}
                         previousBeer={previousBeer}
                         nextBeer={nextBeer}/>
-        <div className='details__content'>
-          <div className='details__content__top'>
-            <div className='details__content__top__description'>
+        <div className='details'>
+          <div className='details__top'>
+            <div className='details__top__description'>
               {descriptionContent}
             </div>
             <BeerImage beer={currentBeer}/>
           </div>
-            <div className='details__content__banner'>
-              {!detailsLoading && currentBeer && (
-                <>
-                  <span>{`ABV: ${currentBeer.abv}%`}</span>
-                  <span>{`SRM: ${currentBeer.srm}`}</span>
-                  <span>{`EBC: ${currentBeer.ebc}`}</span>
-                  <span>{`IBU: ${currentBeer.ibu}`}</span>
-                  <span>{`PH: ${currentBeer.ph}`}</span>
-                </>
-              )}
+          <div className='details__banner'>
+            {!detailsLoading && currentBeer && (
+              <>
+                <span>{`ABV: ${currentBeer.abv}%`}</span>
+                <span>{`SRM: ${currentBeer.srm}`}</span>
+                <span>{`EBC: ${currentBeer.ebc}`}</span>
+                <span>{`IBU: ${currentBeer.ibu}`}</span>
+                <span>{`PH: ${currentBeer.ph}`}</span>
+              </>
+            )}
+          </div>
+          <div className='details__food'>
+            <div className='details__food__content'>
+
             </div>
+          </div>
         </div>
       </div>
     );

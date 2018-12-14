@@ -63,13 +63,20 @@ h1 {
   font-size: $font-size-h1;
   font-weight: $font-weight-bold;
   line-height: 1.2;
-  margin: 0;
+  margin: 0 0 $smaller-margin 0;
   text-transform: uppercase;
+}
+
+h2 {
+  color: $body-font-color;
+  font-size: $font-size-h2;
+  font-weight: $font-weight-bold;
+  line-height: 1.2;
+  margin: 0 0 $smaller-margin 0;
 }
 
 p {
   color: $body-font-color;
-  font-family: $body-font-family;
   font-size: $font-size-p;
   font-weight: $font-weight-normal;
   line-height: 1.2;

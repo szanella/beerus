@@ -2,50 +2,54 @@
 @import '../assets/scss/settings';
 
 .details {
-  &__content {
-    padding: $small-margin 0;
 
-    &__top {
-      display: flex;
-    }
+  &__top {
+    display: flex;
+    margin-top: $medium-margin;
+  }
 
-    &__banner {
-      align-items: center;
-      background-color: $primary-colour;
-      color: $white;
-      display: flex;
-      justify-content: center;
+  &__banner {
+    align-items: center;
+    background-color: $primary-colour;
+    color: $white;
+    display: flex;
+    justify-content: center;
+  }
+
+  &__food {
+    background-color: $body-background;
+
+    &__content {
+      @include app-content();
     }
   }
 }
 
 @media (min-width: $details-layout-threshold) {
   .details {
-    &__content {
+
+    &__top {
       @include app-content();
+      justify-content: space-between;
+      min-height: ($beer-image-circle-diameter * 1.5) / 2;
 
-      &__top {
-        justify-content: space-between;
-        min-height: ($beer-image-circle-diameter * 1.5) / 2;
-
-        &__description {
-          max-width: $content-width - $beer-image-circle-diameter - $large-margin;
-        }
-
-        .beer-image {
-          margin-top: -$medium-margin - ($beer-image-circle-diameter / 2);
-          z-index: 2;
-        }
+      &__description {
+        max-width: $content-width - $beer-image-circle-diameter - $large-margin;
       }
 
-      &__banner {
-        height: $list-row-height;
-        margin-top: $medium-margin;
+      .beer-image {
+        margin-top: -$medium-margin - ($beer-image-circle-diameter / 2);
+        z-index: 2;
+      }
+    }
 
-        span {
-          flex: 0 0 auto;
-          margin: 0 $small-margin;
-        }
+    &__banner {
+      height: $list-row-height;
+      margin-top: $medium-margin;
+
+      span {
+        flex: 0 0 auto;
+        margin: 0 $medium-margin;
       }
     }
   }
@@ -53,15 +57,12 @@
 
 @media (max-width: $details-layout-threshold) {
   .details {
-    &__content {
-      &__top {
+    &__top {
+      flex-flow: column-reverse;
+      align-items: center;
 
-        flex-flow: column-reverse;
-        align-items: center;
-
-        .beer-image {
-          margin: ($beer-image-circle-diameter * 0.25 + $small-margin) 0;
-        }
+      .beer-image {
+        margin: ($beer-image-circle-diameter * 0.25 + $small-margin) 0;
       }
     }
   }

@@ -7,24 +7,24 @@ const SearchBar = props => (
     <div className="search-bar__content">
       <div className="search-bar__content__filter search-bar__content__filter--home">
         <SearchFilter name='beer_name'
-                      placeholder='Filtra per nome'
+                      placeholder='Filter by name'
                       onFilterChanged={props.onFilterChanged} />
       </div>
       <div className="search-bar__content__filter search-bar__content__filter--food">
         <SearchFilter name='food'
-                      placeholder='Filtra per abbinamento'
+                      placeholder='Filter by food'
                       onFilterChanged={props.onFilterChanged} />
       </div>
       <div className="search-bar__content__filter search-bar__content__filter--abv-gt">
         <SearchFilter name='abv_gt'
                       number
-                      placeholder='Da'
+                      placeholder='From'
                       onFilterChanged={props.onFilterChanged} />
       </div>
       <div className="search-bar__content__filter search-bar__content__filter--abv-lt">
         <SearchFilter name='abv_lt'
                       number
-                      placeholder='A'
+                      placeholder='To'
                       onFilterChanged={props.onFilterChanged} />
       </div>
     </div>

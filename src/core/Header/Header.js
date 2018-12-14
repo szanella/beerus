@@ -24,12 +24,12 @@ class Header extends React.Component {
             {
               this.props.location.pathname === '/' ?
                 <h1>Brewdog</h1> :
-                <NavLink exact to="/">Tutte le birre</NavLink>
+                <NavLink exact to="/">All beers</NavLink>
             }
           </div>
 
-          <NavLink to="/random">Una birra random</NavLink>
-          <NavLink to="/favourites">Preferiti</NavLink>
+          <NavLink to="/random">A random beer</NavLink>
+          <NavLink to="/favourites">Favourites</NavLink>
         </div>
       </div>
     );

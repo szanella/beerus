@@ -57,7 +57,7 @@
 
 @media (min-width: $details-layout-threshold) {
   .details-heading {
-    min-height: 250px;
+    min-height: 180px;
     position: relative;
 
     &__beer-nav {
@@ -93,7 +93,7 @@
 
     &__content {
       grid-area: beer-info;
-      height: 150px;
+      min-height: 150px;
       width: 100%;
     }
 
