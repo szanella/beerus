@@ -1,0 +1,40 @@
+@import '../assets/scss/mixins';
+@import '../assets/scss/settings';
+
+.details {
+  &__content {
+    display: flex;
+    padding: $small-margin 0;
+  }
+}
+
+@media (min-width: $details-layout-threshold) {
+  .details {
+    &__content {
+      @include app-content();
+      justify-content: space-between;
+
+      &__description {
+        max-width: $content-width - $beer-image-circle-diameter - $large-margin;
+      }
+
+      .beer-image {
+        margin-top: -$medium-margin - ($beer-image-circle-diameter / 2);
+        z-index: 2;
+      }
+    }
+  }
+}
+
+@media (max-width: $details-layout-threshold) {
+  .details {
+    &__content {
+      flex-flow: column-reverse;
+      align-items: center;
+
+      .beer-image {
+        margin: ($beer-image-circle-diameter * 0.25 + $small-margin) 0;
+      }
+    }
+  }
+}

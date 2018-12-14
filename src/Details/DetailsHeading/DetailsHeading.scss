@@ -55,7 +55,7 @@
   }
 }
 
-@media (min-width: $content-width + ($beer-nav-button-width * 2) + 21px) {
+@media (min-width: $details-layout-threshold) {
   .details-heading {
     min-height: 250px;
     position: relative;
@@ -68,7 +68,7 @@
       width: $beer-nav-button-width;
 
       &__beer-info {
-        max-width: 60%;
+        max-width: $content-width - $beer-image-circle-diameter - $large-margin;
       }
 
       &--prev {
@@ -81,7 +81,7 @@
   }
 }
 
-@media (max-width: $content-width + ($beer-nav-button-width * 2) + 20px) {
+@media (max-width: $details-layout-threshold) {
   .details-heading {
     display: grid;
     width: 100%;
@@ -93,7 +93,7 @@
 
     &__content {
       grid-area: beer-info;
-      height: 180px;
+      height: 150px;
       width: 100%;
     }
 

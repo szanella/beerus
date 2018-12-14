@@ -50,14 +50,19 @@ $font-size-h2: 131.25%;         // 21px
 
 
 // Margins
-$smaller-margin: 0.5rem;
-$small-margin: 1rem;
-$medium-margin: 2rem;
+$smaller-margin: 8px;
+$small-margin: 16px;
+$medium-margin: 32px;
+$large-margin: 32px;
 
 // Radius values
 //$container-radius: 4px;
 //$button-radius: 2px;
 
 $content-width: 900px;
-$beer-nav-button-width: 120px;
 $transitions-duration: 150ms;
+
+// Details page variables
+$beer-nav-button-width: 120px;
+$details-layout-threshold: $content-width + ($beer-nav-button-width * 2) + 20px;
+$beer-image-circle-diameter: 200px;
