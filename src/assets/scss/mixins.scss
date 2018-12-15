@@ -21,9 +21,33 @@
 }
 
 @mixin app-content() {
-  max-width: $content-width;
+  max-width: $large-content-width;
   margin-left: auto;
   margin-right: auto;
+}
+
+@mixin large-screen {
+  @media (min-width: #{$large-screen}) {
+    @content;
+  }
+}
+
+@mixin normal-screen {
+  @media (min-width: #{$medium-screen}) and (max-width: #{$large-screen - 1px}) {
+    @content;
+  }
+}
+
+@mixin medium-screen {
+  @media (min-width: #{$small-screen}) and (max-width: #{$medium-screen - 1px}) {
+    @content;
+  }
+}
+
+@mixin small-screen {
+  @media (max-width: #{$small-screen - 1px}) {
+    @content;
+  }
 }
 
 @mixin smooth-hover() {

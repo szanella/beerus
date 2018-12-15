@@ -19,7 +19,7 @@ class Header extends React.Component {
   render() {
     return (
       <div className='header'>
-        <div className='header__content'>
+        <div className='header__content app-content'>
           <div>
             {
               this.props.location.pathname === '/' ?

@@ -4,7 +4,7 @@ import './SearchBar.scss';
 
 const SearchBar = props => (
   <div className="search-bar">
-    <div className="search-bar__content">
+    <div className="search-bar__content app-content">
       <div className="search-bar__content__filter search-bar__content__filter--home">
         <SearchFilter name='beer_name'
                       placeholder='Filter by name'

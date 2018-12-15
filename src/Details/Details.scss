@@ -21,8 +21,6 @@
     padding: $medium-margin 0;
 
     &__content {
-      @include app-content();
-
       h2 {
         margin-bottom: $small-margin;
       }
@@ -41,12 +39,11 @@
   .details {
 
     &__top {
-      @include app-content();
       justify-content: space-between;
       min-height: ($beer-image-circle-diameter * 1.5) / 2;
 
       &__description {
-        max-width: $content-width - $beer-image-circle-diameter - $large-margin;
+        max-width: $large-content-width - $beer-image-circle-diameter - $large-margin;
       }
 
       .beer-image {

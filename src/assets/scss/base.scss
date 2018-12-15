@@ -1,4 +1,5 @@
-@import "./settings.scss";
+@import "./settings";
+@import "./mixins";
 
 /*
   Index:
@@ -96,4 +97,34 @@ input {
   font-family: $body-font-family;
   font-size: $font-size-p;
   line-height: 1.2;
+}
+
+@include large-screen() {
+  .app-content {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: $large-content-width;
+  }
+}
+
+@include normal-screen() {
+  .app-content {
+    max-width: $medium-content-width;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@include medium-screen() {
+  .app-content {
+    margin-left: $medium-margin;
+    margin-right: $medium-margin;
+  }
+}
+
+@include small-screen() {
+  .app-content {
+    margin-left: $medium-margin;
+    margin-right: $medium-margin;
+  }
 }

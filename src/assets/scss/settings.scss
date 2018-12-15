@@ -59,7 +59,13 @@ $large-margin: 32px;
 //$container-radius: 4px;
 //$button-radius: 2px;
 
-$content-width: 900px;
+// Screen size thresholds
+$large-screen: 1280px;
+$medium-screen: 800px;
+$small-screen: 480px;
+
+$large-content-width: 900px;
+$medium-content-width: 750px;
 $transitions-duration: 150ms;
 
 // Home variables
@@ -67,6 +73,6 @@ $list-row-height: 56px;
 
 // Details page variables
 $beer-nav-button-width: 120px;
-$details-layout-threshold: $content-width + ($beer-nav-button-width * 2) + 20px;
+$details-layout-threshold: $large-content-width + ($beer-nav-button-width * 2) + 20px;
 $beer-image-circle-diameter: 200px;
 $food-pairing-box-width: 170px;

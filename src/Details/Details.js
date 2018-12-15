@@ -39,7 +39,7 @@ class Details extends React.Component {
                         previousBeer={previousBeer}
                         nextBeer={nextBeer}/>
         <div className='details'>
-          <div className='details__top'>
+          <div className='details__top app-content'>
             <div className='details__top__description'>
               {descriptionContent}
             </div>
@@ -57,7 +57,7 @@ class Details extends React.Component {
             )}
           </div>
           <div className='details__food'>
-            <div className='details__food__content'>
+            <div className='details__food__content app-content'>
               <h2>Food pairings</h2>
               <div className='details__food__content__food-boxes'>
                 {!detailsLoading && currentBeer && (

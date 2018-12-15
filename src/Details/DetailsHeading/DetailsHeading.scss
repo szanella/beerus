@@ -7,8 +7,6 @@
   width: 100%;
 
   &__content {
-    @include app-content();
-
     &__beer-info {
       p {
         font-size: $font-size-h1;
@@ -62,7 +60,7 @@
 
     &__content {
       &__beer-info {
-        max-width: $content-width - $beer-image-circle-diameter - $large-margin;
+        max-width: $large-content-width - $beer-image-circle-diameter - $large-margin;
       }
     }
 

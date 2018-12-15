@@ -3,7 +3,6 @@
 
 .home {
   &__content {
-    @include app-content();
     padding: $medium-margin 0;
   }
 }
