@@ -61,10 +61,8 @@ class Details extends React.Component {
               <h2>Food pairings</h2>
               <div className='details__food__content__food-boxes'>
                 {!detailsLoading && currentBeer && (
-                  currentBeer.food_pairing.map(food_pairing => (
-                    <div className='details__food__content__food-boxes__food-box'>
-                      <FoodPairingBox foodPairing={food_pairing}/>
-                    </div>
+                  currentBeer.food_pairing.map((food_pairing, index) => (
+                      <FoodPairingBox key={index} foodPairing={food_pairing}/>
                   ))
                 )}
               </div>

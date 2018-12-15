@@ -60,16 +60,18 @@
     min-height: 180px;
     position: relative;
 
+    &__content {
+      &__beer-info {
+        max-width: $content-width - $beer-image-circle-diameter - $large-margin;
+      }
+    }
+
     &__beer-nav {
       height: 48px;
       margin-top: -24px;
       position: absolute;
       top: 50%;
       width: $beer-nav-button-width;
-
-      &__beer-info {
-        max-width: $content-width - $beer-image-circle-diameter - $large-margin;
-      }
 
       &--prev {
         left: 0;
