@@ -6,24 +6,68 @@
   padding: $medium-margin 0;
   width: 100%;
 
-  &__content {
-    display: flex;
-    flex-direction: row;
+  @include screen-gt($medium-screen) {
+    &__content {
+      display: flex;
+      flex-direction: row;
 
-    &__filter {
-      &:not(:last-of-type) {
-        margin-right: $smaller-margin;
-      }
+      &__filter {
+        &:not(:last-of-type) {
+          margin-right: $smaller-margin;
+        }
 
-      &--home, &--food {
-        flex: 1.5 1.5 0;
+        &--name, &--food {
+          flex: 1.5 1.5 0;
+        }
+        &--abv-gt, &--abv-lt {
+          flex: 1 1 0;
+        }
+        &--food:not(:last-of-type) {
+          margin-right: $medium-margin;
+        }
       }
-      &--abv-gt, &--abv-lt {
-        flex: 1 1 0;
+    }
+  }
+
+  @include screen-lt($medium-screen) {
+    &__content {
+      display: grid;
+      grid-column-gap: $medium-margin;
+      grid-row-gap: $small-margin;
+
+      &__filter {
+        &--name {
+          grid-area: name;
+        }
+        &--food {
+          grid-area: food;
+        }
+        &--abv-gt {
+          grid-area: abv-gt;
+        }
+        &--abv-lt {
+          grid-area: abv-lt;
+        }
       }
-      &--food:not(:last-of-type) {
-        margin-right: $medium-margin;
-      }
+    }
+  }
+
+  @include medium-screen() {
+    &__content {
+      grid-template:
+              "name   abv-gt"   auto
+              "food   abv-lt" auto
+              / 1.5fr 1fr;
+    }
+  }
+
+  @include small-screen() {
+    &__content {
+      grid-template:
+              "name   name"   auto
+              "food   food"   auto
+              "abv-gt abv-lt" auto
+              / 1fr 1fr;
     }
   }
 }

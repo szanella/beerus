@@ -25,7 +25,7 @@ class Details extends React.Component {
     if (detailsLoading) {
       descriptionContent = <div>Loading</div>;
     } else {
-      descriptionContent = currentBeer && (
+      descriptionContent = (
         <>
           <h2>Description</h2>
           <p>{currentBeer.description}</p>
@@ -46,7 +46,7 @@ class Details extends React.Component {
             <BeerImage beer={currentBeer}/>
           </div>
           <div className='details__banner'>
-            {!detailsLoading && currentBeer && (
+            {!detailsLoading && (
               <>
                 <span>{`ABV: ${currentBeer.abv}%`}</span>
                 <span>{`SRM: ${currentBeer.srm}`}</span>
@@ -60,7 +60,7 @@ class Details extends React.Component {
             <div className='details__food__content app-content'>
               <h2>Food pairings</h2>
               <div className='details__food__content__food-boxes'>
-                {!detailsLoading && currentBeer && (
+                {!detailsLoading && currentBeer.food_pairing &&  (
                   currentBeer.food_pairing.map((food_pairing, index) => (
                       <FoodPairingBox key={index} foodPairing={food_pairing}/>
                   ))

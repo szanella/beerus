@@ -124,7 +124,7 @@ input {
 
 @include small-screen() {
   .app-content {
-    margin-left: $medium-margin;
-    margin-right: $medium-margin;
+    margin-left: $small-margin;
+    margin-right: $small-margin;
   }
 }

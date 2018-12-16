@@ -5,12 +5,10 @@ import {NavLink} from 'react-router-dom';
 const DetailsHeading = ({beer, previousBeer, nextBeer}) => (
   <div className='details-heading'>
     <div className='details-heading__content app-content'>
-      {beer && (
-        <div className='details-heading__content__beer-info'>
-          <h1>{beer.name}</h1>
-          <p>{beer.tagline}</p>
-        </div>
-      )}
+      <div className='details-heading__content__beer-info'>
+        <h1>{beer.name}</h1>
+        <p>{beer.tagline}</p>
+      </div>
     </div>
     {previousBeer && (
       <NavLink to={`/details/${previousBeer.id}`} className='details-heading__beer-nav details-heading__beer-nav--prev'>

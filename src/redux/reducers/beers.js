@@ -4,7 +4,7 @@ const initialState = {
   allIds: [],
   byIds: {},
   beersLoading: false,
-  currentBeer: null,
+  currentBeer: {},
   previousBeer: null,
   nextBeer: null,
   detailsLoading: false
@@ -42,7 +42,7 @@ export default function (state = initialState, action) {
 
       return {
         ...state,
-        currentBeer: null,
+        currentBeer: {},
         previousBeer,
         nextBeer,
         detailsLoading: true

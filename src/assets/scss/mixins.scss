@@ -50,6 +50,18 @@
   }
 }
 
+@mixin screen-gt($size) {
+  @media (min-width: #{$size}) {
+    @content;
+  }
+}
+
+@mixin screen-lt($size) {
+  @media (max-width: #{$size - 1px}) {
+    @content;
+  }
+}
+
 @mixin smooth-hover() {
   transition: all $transitions-duration ease-out;
 
