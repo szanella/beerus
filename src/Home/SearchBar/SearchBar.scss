@@ -6,24 +6,55 @@
   padding: $medium-margin 0;
   width: 100%;
 
+  @include screen-gt($small-screen) {
+    &__content {
+      &__desktop-abv {
+        display: flex;
+        margin-bottom: $smaller-margin;
+
+        &__label {
+          font-size: $font-size-smallest
+        }
+      }
+      &__filters {
+        &__mobile-abv {
+          display: none;
+        }
+      }
+    }
+  }
+
   @include screen-gt($medium-screen) {
     &__content {
-      display: flex;
-      flex-direction: row;
+      &__desktop-abv {
+        &__filler {
+          flex: 3 3 0;
+          margin-right: $smaller-margin + $medium-margin;
+        }
 
-      &__filter {
-        &:not(:last-of-type) {
+        &__label {
+          flex: 2 2 0;
           margin-right: $smaller-margin;
         }
+      }
+      &__filters {
+        display: flex;
+        flex-direction: row;
 
-        &--name, &--food {
-          flex: 1.5 1.5 0;
-        }
-        &--abv-gt, &--abv-lt {
-          flex: 1 1 0;
-        }
-        &--food:not(:last-of-type) {
-          margin-right: $medium-margin;
+        &__filter {
+          &:not(:last-of-type) {
+            margin-right: $smaller-margin;
+          }
+
+          &--name, &--food {
+            flex: 1.5 1.5 0;
+          }
+          &--abv-gt, &--abv-lt {
+            flex: 1 1 0;
+          }
+          &--food:not(:last-of-type) {
+            margin-right: $medium-margin;
+          }
         }
       }
     }
@@ -31,22 +62,24 @@
 
   @include screen-lt($medium-screen) {
     &__content {
-      display: grid;
-      grid-column-gap: $medium-margin;
-      grid-row-gap: $small-margin;
+      &__filters {
+        display: grid;
+        grid-column-gap: $medium-margin;
+        grid-row-gap: $small-margin;
 
-      &__filter {
-        &--name {
-          grid-area: name;
-        }
-        &--food {
-          grid-area: food;
-        }
-        &--abv-gt {
-          grid-area: abv-gt;
-        }
-        &--abv-lt {
-          grid-area: abv-lt;
+        &__filter {
+          &--name {
+            grid-area: name;
+          }
+          &--food {
+            grid-area: food;
+          }
+          &--abv-gt {
+            grid-area: abv-gt;
+          }
+          &--abv-lt {
+            grid-area: abv-lt;
+          }
         }
       }
     }
@@ -54,20 +87,41 @@
 
   @include medium-screen() {
     &__content {
-      grid-template:
-              "name   abv-gt"   auto
-              "food   abv-lt" auto
+      &__desktop-abv {
+        &__filler {
+          flex: 1.5 1 0;
+          margin-right: $medium-margin;
+        }
+        &__label {
+          flex: 1 1 0;
+        }
+      }
+      &__filters {
+        grid-template:
+                "name   abv-gt"   auto
+                "food   abv-lt" auto
               / 1.5fr 1fr;
+      }
     }
   }
 
   @include small-screen() {
     &__content {
-      grid-template:
-              "name   name"   auto
-              "food   food"   auto
-              "abv-gt abv-lt" auto
-              / 1fr 1fr;
+      &__desktop-abv {
+        display: none;
+      }
+      &__filters {
+        grid-template:
+                "name   name" auto
+                "food   food" auto
+                "abv    abv" auto
+                "abv-gt abv-lt" auto
+                 / 1fr 1fr;
+        &__mobile-abv {
+          display: block;
+          grid-area: abv;
+        }
+      }
     }
   }
 }
