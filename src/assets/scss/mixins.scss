@@ -62,6 +62,12 @@
   }
 }
 
+@mixin touchscreen() {
+  @media (hover: none) {
+    @content;
+  }
+}
+
 @mixin smooth-hover() {
   transition: all $transitions-duration ease-out;
 
