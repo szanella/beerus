@@ -76,6 +76,10 @@
       flex-flow: column-reverse;
       align-items: center;
 
+      &__description {
+        margin-top: $medium-margin;
+      }
+
       .beer-image {
         margin: ($beer-image-circle-diameter * 0.25 + $small-margin) 0;
       }
