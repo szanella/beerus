@@ -34,11 +34,11 @@ export default function (state = initialState, action) {
       };
     }
     case REQUEST_BEER_DETAILS: {
-      const beerId = +action.id;
-      const beers = state.allIds.map(id => state.byIds[id]);
+      const beerId = action.id === 'random' ? action.id : +action.id;
+      const beers = action.id === 'random' ? [] : state.allIds.map(id => state.byIds[id]);
       const beerIndex = beers.findIndex(aBeer => aBeer.id === beerId);
-      const previousBeer = beerIndex != null && beerIndex > 0 ? beers[beerIndex - 1] : null;
-      const nextBeer = beerIndex != null && beerIndex < beers.length - 1 ? beers[beerIndex + 1] : null;
+      const previousBeer = beerIndex !== -1 && beerIndex > 0 ? beers[beerIndex - 1] : null;
+      const nextBeer = beerIndex !== -1 && beerIndex < beers.length - 1 ? beers[beerIndex + 1] : null;
 
       return {
         ...state,

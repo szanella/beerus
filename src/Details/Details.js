@@ -9,11 +9,15 @@ import FoodPairingBox from './FoodPairingBox/FoodPairingBox';
 
 class Details extends React.Component {
   componentDidMount() {
-    this.props.loadBeerDetails(this.props.match.params.id);
+    if (this.props.random) {
+      this.props.loadBeerDetails('random');
+    } else {
+      this.props.loadBeerDetails(this.props.match.params.id);
+    }
   }
 
   componentDidUpdate(prevProps) {
-    if (this.props.match.params.id !== prevProps.match.params.id) {
+    if (!this.props.random && this.props.match.params.id !== prevProps.match.params.id) {
       this.props.loadBeerDetails(this.props.match.params.id);
     }
   }

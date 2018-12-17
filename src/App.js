@@ -13,6 +13,7 @@ class App extends React.Component {
           <Header />
           <Route exact path='/' component={Home} />
           <Route path='/details/:id' component={Details} />
+          <Route path='/random' render={() => <Details random />} />
         </div>
       </BrowserRouter>
     );
