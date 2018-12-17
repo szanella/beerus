@@ -24,6 +24,7 @@
 
     a {
       @include smooth-hover();
+      @include no-select();
       border: 1px solid $inactive-link-colour;
       color: $inactive-link-colour;
       padding: 5px;

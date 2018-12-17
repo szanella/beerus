@@ -37,7 +37,6 @@
 
 @media (min-width: $details-layout-threshold) {
   .details {
-
     &__top {
       justify-content: space-between;
       min-height: ($beer-image-circle-diameter * 1.5) / 2;
