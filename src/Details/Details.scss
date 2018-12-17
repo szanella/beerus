@@ -2,7 +2,6 @@
 @import '../assets/scss/settings';
 
 .details {
-
   &__top {
     display: flex;
     margin-top: $medium-margin;
@@ -14,6 +13,7 @@
     color: $white;
     display: flex;
     justify-content: center;
+    margin-top: $medium-margin;
   }
 
   &__food {
@@ -27,9 +27,10 @@
 
       &__food-boxes {
         display: grid;
+        grid-column-gap: $medium-margin;
         grid-row-gap: $medium-margin;
-        grid-template-columns: repeat(4, $food-pairing-box-width);
-        justify-content: space-between;
+        grid-template-columns: repeat(auto-fill, $food-pairing-box-width);
+        justify-content: flex-start;
       }
     }
   }
@@ -41,19 +42,51 @@
       justify-content: space-between;
       min-height: ($beer-image-circle-diameter * 1.5) / 2;
 
-      &__description {
-        max-width: $large-content-width - $beer-image-circle-diameter - $large-margin;
-      }
-
       .beer-image {
         margin-top: -$medium-margin - ($beer-image-circle-diameter / 2);
         z-index: 2;
       }
     }
+  }
+}
 
+@include large-screen() {
+  .details {
+    &__top {
+      &__description {
+        max-width: $large-content-width - $beer-image-circle-diameter - $large-margin;
+      }
+    }
+  }
+}
+
+@media (min-width: $details-layout-threshold) and (max-width: $large-screen - 1px) {
+  .details {
+    &__top {
+      &__description {
+        max-width: $medium-content-width - $beer-image-circle-diameter - $large-margin;
+      }
+    }
+  }
+}
+
+@media (max-width: $details-layout-threshold - 1px) {
+  .details {
+    &__top {
+      flex-flow: column-reverse;
+      align-items: center;
+
+      .beer-image {
+        margin: ($beer-image-circle-diameter * 0.25 + $small-margin) 0;
+      }
+    }
+  }
+}
+
+@include screen-gt($small-screen) {
+  .details {
     &__banner {
       height: $list-row-height;
-      margin-top: $medium-margin;
 
       span {
         flex: 0 0 auto;
@@ -63,14 +96,24 @@
   }
 }
 
-@media (max-width: $details-layout-threshold) {
+@include medium-screen() {
   .details {
-    &__top {
-      flex-flow: column-reverse;
-      align-items: center;
+    &__banner {
+      span {
+        margin: 0 $small-margin;
+      }
+    }
+  }
+}
 
-      .beer-image {
-        margin: ($beer-image-circle-diameter * 0.25 + $small-margin) 0;
+@include small-screen() {
+  .details {
+    &__banner {
+      flex-direction: column;
+      padding: $smaller-margin 0;
+
+      span {
+        margin: $smaller-margin 0;
       }
     }
   }
