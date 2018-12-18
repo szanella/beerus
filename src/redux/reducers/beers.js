@@ -1,4 +1,10 @@
-import {RECEIVE_BEER_DETAILS, RECEIVE_BEERS_PAGE, REQUEST_BEER_DETAILS, REQUEST_BEERS_PAGE} from '../actionTypes';
+import {
+  RECEIVE_BEER_DETAILS,
+  RECEIVE_BEERS_PAGE, RECEIVE_FAVOURITE_BEERS,
+  REQUEST_BEER_DETAILS,
+  REQUEST_BEERS_PAGE,
+  REQUEST_FAVOURITE_BEERS, TOGGLE_FAVOURITE_BEER
+} from '../actionTypes';
 
 const initialState = {
   allIds: [],
@@ -22,7 +28,8 @@ export default function (state = initialState, action) {
         beersLoading: true
       };
     }
-    case RECEIVE_BEERS_PAGE: {
+    case RECEIVE_BEERS_PAGE:
+    case RECEIVE_FAVOURITE_BEERS: {
       const {beers} = action;
       let byIds = state.byIds;
       beers.forEach(beer => byIds[beer.id] = beer);
@@ -55,6 +62,23 @@ export default function (state = initialState, action) {
         ...state,
         currentBeer: beer,
         detailsLoading: false
+      };
+    }
+    case REQUEST_FAVOURITE_BEERS: {
+      return {
+        ...state,
+        allIds: [],
+        byIds: {},
+        beersLoading: true
+      };
+    }
+    case TOGGLE_FAVOURITE_BEER: {
+      return {
+        ...state,
+        currentBeer: {
+          ...state.currentBeer,
+          favourite: !state.currentBeer.favourite
+        }
       };
     }
     default: {

@@ -2,7 +2,7 @@ import React from 'react';
 import './Details.scss';
 import {getCurrentBeer, getDetailsLoading, getNextBeer, getPreviousBeer} from '../redux/selectors';
 import {connect} from 'react-redux';
-import {fetchBeerDetails} from '../redux/actions';
+import {fetchBeerDetails, toggleLocalFavouriteBeer} from '../redux/actions';
 import DetailsHeading from './DetailsHeading/DetailsHeading';
 import BeerImage from '../shared/BeerImage/BeerImage';
 import FoodPairingBox from './FoodPairingBox/FoodPairingBox';
@@ -20,6 +20,10 @@ class Details extends React.Component {
     if (!this.props.random && this.props.match.params.id !== prevProps.match.params.id) {
       this.props.loadBeerDetails(this.props.match.params.id);
     }
+  }
+
+  onStarClick() {
+    this.props.toggleFavouriteBeer(this.props.currentBeer.id);
   }
 
   render() {
@@ -41,7 +45,8 @@ class Details extends React.Component {
       <div className='details'>
         <DetailsHeading beer={currentBeer}
                         previousBeer={previousBeer}
-                        nextBeer={nextBeer}/>
+                        nextBeer={nextBeer}
+                        onStarClick={() => this.onStarClick()} />
         <div className='details'>
           <div className='details__top app-content'>
             <div className='details__top__description'>
@@ -92,7 +97,8 @@ const mapPropsToState = state => {
 };
 
 const mapDispatchToState = (dispatch, ownProps) => ({
-  loadBeerDetails: id => dispatch(fetchBeerDetails(id))
+  loadBeerDetails: id => dispatch(fetchBeerDetails(id)),
+  toggleFavouriteBeer: id => dispatch(toggleLocalFavouriteBeer(id))
 });
 
 export default connect(mapPropsToState, mapDispatchToState)(Details);

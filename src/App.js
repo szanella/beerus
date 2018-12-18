@@ -4,6 +4,7 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import Home from './Home/Home';
 import Header from './core/Header/Header';
 import Details from './Details/Details';
+import Favourites from './Favourites/Favourites';
 
 class App extends React.Component {
   render() {
@@ -12,6 +13,7 @@ class App extends React.Component {
         <div className="app">
           <Header />
           <Route exact path='/' component={Home} />
+          <Route path='/favourites' component={Favourites} />
           <Route path='/details/:id' component={Details} />
           <Route path='/random' render={() => <Details random />} />
         </div>

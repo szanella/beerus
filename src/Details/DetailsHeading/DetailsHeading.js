@@ -2,11 +2,11 @@ import React from 'react';
 import './DetailsHeading.scss';
 import {NavLink} from 'react-router-dom';
 
-const DetailsHeading = ({beer, previousBeer, nextBeer}) => (
+const DetailsHeading = ({beer, previousBeer, nextBeer, onStarClick}) => (
   <div className='details-heading'>
     <div className='details-heading__content app-content'>
       <div className='details-heading__content__beer-info'>
-        <h1><i className="material-icons">star_border</i>{beer.name}</h1>
+        <h1><i className="material-icons" onClick={onStarClick}>{beer.favourite ? 'star' : 'star_border'}</i>{beer.name}</h1>
         <p>{beer.tagline}</p>
       </div>
     </div>
