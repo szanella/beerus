@@ -1,0 +1,171 @@
+@import "../../assets/scss/settings";
+@import "../../assets/scss/mixins";
+
+.details-heading {
+  background-color: $header-background;
+  padding: $medium-margin;
+  width: 100%;
+
+  &__content {
+    &__beer-info {
+      h1 {
+        position: relative;
+        i {
+          cursor: pointer;
+          font-size: 32px;
+          line-height: 1.2;
+          position: absolute;
+        }
+      }
+      p {
+        font-size: $font-size-h1;
+      }
+    }
+  }
+
+  &__beer-nav {
+    @include smooth-hover();
+    @include no-select();
+    align-items: center;
+    cursor: pointer;
+    display: flex;
+    padding: 8px;
+
+    &--prev {
+      justify-content: flex-start;
+    }
+    &--next {
+      justify-content: flex-end;
+    }
+
+    i {
+      color: $body-font-color;
+      font-size: 36px;
+    }
+    span {
+      color: $header-background;
+      display: none;
+      font-size: $font-size-label;
+      max-height: 100%;
+      overflow: hidden;
+    }
+
+    &:hover {
+      background-color: $primary-colour;
+      i {
+        color: $header-background;
+      }
+      span {
+        display: block;
+      }
+    }
+  }
+}
+
+@media (min-width: $details-layout-threshold) {
+  .details-heading {
+    min-height: 180px;
+    position: relative;
+
+    &__content {
+      &__beer-info {
+        h1 {
+          i {
+            left: -50px;
+          }
+        }
+      }
+    }
+
+    &__beer-nav {
+      height: 48px;
+      margin-top: -24px;
+      position: absolute;
+      top: 50%;
+      width: $beer-nav-button-width;
+
+      &--prev {
+        left: 0;
+      }
+      &--next {
+        right: 0;
+      }
+    }
+  }
+}
+
+@include touchscreen() {
+  .details-heading {
+    &__beer-nav {
+      &:active {
+        opacity: 0.75;
+      }
+
+      background-color: $primary-colour;
+      i {
+        color: $header-background;
+      }
+      span {
+        display: block;
+      }
+    }
+  }
+
+}
+
+@include large-screen() {
+  .details-heading {
+    &__content {
+      &__beer-info {
+        max-width: $large-content-width - $beer-image-circle-diameter - $large-margin;
+      }
+    }
+  }
+}
+
+@media (min-width: $details-layout-threshold) and (max-width: $large-screen - 1px) {
+  .details-heading {
+    &__content {
+      &__beer-info {
+        max-width: $medium-content-width - $beer-image-circle-diameter - $large-margin;
+      }
+    }
+  }
+}
+
+@media (max-width: $details-layout-threshold) {
+  .details-heading {
+    display: grid;
+    grid-column-gap: $medium-margin;
+    grid-row-gap: $small-margin;
+    width: 100%;
+
+    grid-template:
+            "beer-info  beer-info"  auto
+            "prev       next"       auto
+            / 1fr 1fr;
+
+    &__content {
+      grid-area: beer-info;
+      min-height: 150px;
+      width: 100%;
+
+      &__beer-info {
+        h1 {
+          i {
+            left: -40px;
+          }
+        }
+      }
+    }
+
+    &__beer-nav {
+      &--prev {
+        grid-area: prev;
+      }
+      &--next {
+        grid-area: next;
+      }
+    }
+  }
+}

@@ -1,0 +1,79 @@
+// a. Base
+// b. Global
+
+// a. Base
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+// This is the default html and body font-size for the base rem value.
+$rem-base: 16;
+
+// The default font-size is set to 100% of the browser style sheet (usually 16px)
+$base-font-size: 16px;
+// The $base-font-size is 100% while $base-line-height is 150%
+$base-line-height: 100%;
+
+// b. Global
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
+// We use these to define default font weights
+$font-weight-normal: 400;
+$font-weight-bold: 600;
+
+// Font families
+$roboto-slab: 'Roboto Slab';
+
+// We use these to control various global styles
+$body-font-color: #7b7a75;
+$body-font-family: $roboto-slab, sans-serif;
+$body-font-weight: $font-weight-normal;
+$body-font-style: normal;
+
+// We use this to control font-smoothing
+$font-smoothing: antialiased;
+
+// Colours
+$body-background: #f3f3f3;
+$header-background: #000000;
+$primary-colour: #f5cb2e;
+$white: #ffffff;
+$inactive-link-colour: #868683;
+$inactive-input-colour: #4a4a4a;
+
+// Semantically significant colours
+
+//$shadow-color: rgba(0, 0, 0, 0.33);
+
+// Global font sizes
+$font-size-smallest: 75%;        // 12px
+$font-size-label: 87.5%;        // 14px
+$font-size-p: 100%;             // 16px
+$font-size-h1: 200%;          // 18px
+$font-size-h2: 131.25%;         // 21px
+
+
+// Margins
+$smaller-margin: 8px;
+$small-margin: 16px;
+$medium-margin: 32px;
+$large-margin: 32px;
+
+// Radius values
+//$container-radius: 4px;
+//$button-radius: 2px;
+
+// Screen size thresholds
+$large-screen: 1280px;
+$medium-screen: 800px;
+$small-screen: 480px;
+
+$large-content-width: 900px;
+$medium-content-width: 750px;
+$transitions-duration: 150ms;
+
+// Home variables
+$list-row-height: 56px;
+
+// Details page variables
+$beer-nav-button-width: 120px;
+$details-layout-threshold: $medium-content-width + ($beer-nav-button-width * 2) + 20px;
+$beer-image-circle-diameter: 200px;
+$food-pairing-box-width: 170px;

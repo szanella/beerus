@@ -1,0 +1,35 @@
+@import "../../../assets/scss/settings";
+@import "../../../assets/scss/mixins";
+
+.beer-list-row {
+  @include smooth-hover();
+  align-items: center;
+  background-color: $white;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  height: $list-row-height;
+  padding: 0 $small-margin;
+
+  &:not(:last-of-type) {
+    margin-bottom: $smaller-margin;
+  }
+
+  &__name {
+    flex: 1 1 0;
+  }
+
+  &__abv {
+    color: $white;
+    display: none;
+  }
+
+  &:hover {
+    background-color: $primary-colour;
+    color: $white;
+  }
+
+  &:hover &__abv {
+    display: block;
+  }
+}

@@ -1,0 +1,16 @@
+@import '../../assets/scss/settings';
+
+.beer-image {
+  align-items: center;
+  background-color: $primary-colour;
+  border-radius: 50%;
+  display: flex;
+  height: $beer-image-circle-diameter;
+  justify-content: center;
+  width: $beer-image-circle-diameter;
+
+  img {
+    height: $beer-image-circle-diameter * 1.5;
+    width: auto;
+  }
+}
