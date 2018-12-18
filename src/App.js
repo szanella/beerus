@@ -9,7 +9,7 @@ import Favourites from './Favourites/Favourites';
 class App extends React.Component {
   render() {
     return (
-      <BrowserRouter basename={process.env.PUBLIC_URL}>
+      <BrowserRouter>
         <div className="app">
           <Header />
           <Route exact path='/' component={Home} />
