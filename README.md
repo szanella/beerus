@@ -1,4 +1,4 @@
-##Beerus
+## Beerus
 
 Solution to a Front end test for candidates applying for [Moku](https://moku.io/). This project consumes the [Brewdog open API](https://punkapi.com/).
 
