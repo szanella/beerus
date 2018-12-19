@@ -4,7 +4,7 @@ Solution to a Front end test for candidates applying for [Moku](https://moku.io/
 Credits to [Marco](http://marcomezzavilla.com/) for the awesome design.
 
 This solution is implemented as a React Single Page Application, using Redux for state management.
-Responsive and optimised for several common resolutions.
+The layout is responsive and optimised for several common resolutions.
 
 A demo can be found [here](https://beerus-995b7.firebaseapp.com).
 
