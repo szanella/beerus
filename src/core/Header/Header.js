@@ -28,7 +28,8 @@ class Header extends React.Component {
             }
           </div>
 
-          <NavLink to="/random">A random beer</NavLink>
+          <NavLink to="/random" className='header__content__nav--desktop'>A random beer</NavLink>
+          <NavLink to="/random" className='header__content__nav--mobile'>Random</NavLink>
           <NavLink to="/favourites">Favourites</NavLink>
         </div>
       </div>
