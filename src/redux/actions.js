@@ -51,7 +51,7 @@ export const fetchBeerDetails = id => {
           const beer = response.data[0];
           return {
             ...beer,
-            favourite: (JSON.parse(localStorage.getItem('favouriteBeerIds')) || []).includes(beer.id)
+            favourite: fetchLocalFavourites().includes(beer.id)
           };
         },
         error => console.error(error)
@@ -73,7 +73,7 @@ export const fetchFavouriteBeers = () => {
   return dispatch => {
     dispatch(requestFavouriteBeers());
 
-    const beerIds = JSON.parse(localStorage.getItem('favouriteBeerIds')).join('|');
+    const beerIds = fetchLocalFavourites().join('|');
     return axios.get(`https://api.punkapi.com/v2/beers?ids=${beerIds}`)
       .then(
         response => response.data,
@@ -90,7 +90,7 @@ export const toggleFavouriteBeer = id => ({
 
 export const toggleLocalFavouriteBeer = id => {
   return dispatch => {
-    const favouriteBeerIds = JSON.parse(localStorage.getItem('favouriteBeerIds')) || [];
+    const favouriteBeerIds = fetchLocalFavourites();
     if (favouriteBeerIds.includes(id)) {
       localStorage.setItem('favouriteBeerIds', JSON.stringify(favouriteBeerIds.filter(beerId => beerId !== id)));
     } else {
@@ -109,4 +109,8 @@ function composeQuery(query) {
     }
   }
   return params;
+}
+
+function fetchLocalFavourites() {
+  return JSON.parse(localStorage.getItem('favouriteBeerIds')) || [];
 }
