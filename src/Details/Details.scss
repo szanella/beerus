@@ -96,11 +96,11 @@
 
 @include small-screen() {
   .details__banner {
-    flex-direction: column;
-    padding: $smaller-margin 0;
+    flex-wrap: wrap;
+    padding: $smaller-margin $medium-margin;
 
     span {
-      margin: $smaller-margin 0;
+      margin: $smaller-margin $small-margin;
     }
   }
 }

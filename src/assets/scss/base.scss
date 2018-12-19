@@ -99,6 +99,11 @@ input {
   line-height: 1.2;
 }
 
+button {
+  font-family: $body-font-family;
+  font-size: $font-size-p;
+}
+
 @include large-screen() {
   .app-content {
     margin-left: auto;

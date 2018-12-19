@@ -12,9 +12,10 @@ export const requestBeersPage = query => ({
   query
 });
 
-export const receiveBeersPage = beers => ({
+export const receiveBeersPage = (beers, query = {}) => ({
   type: RECEIVE_BEERS_PAGE,
-  beers
+  beers,
+  query
 });
 
 export const fetchBeersPage = query => {
@@ -27,7 +28,7 @@ export const fetchBeersPage = query => {
         response => response.data,
         error => console.error(error)
       )
-      .then(json => dispatch(receiveBeersPage(json)));
+      .then(json => dispatch(receiveBeersPage(json, query)));
   };
 };
 

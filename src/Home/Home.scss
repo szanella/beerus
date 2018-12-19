@@ -1,7 +1,29 @@
 @import "../assets/scss/settings";
+@import "../assets/scss/mixins";
 
 .home {
   &__content {
     padding: $medium-margin 0;
+
+    &__load-more {
+      display: flex;
+      justify-content: center;
+      margin-top: $medium-margin;
+
+      button {
+        @include smooth-hover();
+        background-color: transparent;
+        border: none;
+        color: $header-background;
+        cursor: pointer;
+        padding: $small-margin;
+        text-transform: uppercase;
+
+        &:hover {
+          background-color: $primary-colour;
+          color: $white;
+        }
+      }
+    }
   }
 }

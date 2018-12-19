@@ -6,8 +6,12 @@ const DetailsHeading = ({beer, previousBeer, nextBeer, onStarClick}) => (
   <header className='details-heading'>
     <div className='details-heading__content app-content'>
       <div className='details-heading__content__beer-info'>
-        <h1><i className="material-icons" onClick={onStarClick}>{beer.favourite ? 'star' : 'star_border'}</i>{beer.name}</h1>
-        <p>{beer.tagline}</p>
+        { beer.id && (
+          <>
+            <h1><i className="material-icons" onClick={onStarClick}>{beer.favourite ? 'star' : 'star_border'}</i>{beer.name}</h1>
+            <p>{beer.tagline}</p>
+          </>
+        )}
       </div>
     </div>
     {previousBeer && (
