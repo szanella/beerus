@@ -6,20 +6,18 @@
   padding: $medium-margin;
   width: 100%;
 
-  &__content {
-    &__beer-info {
-      h1 {
-        position: relative;
-        i {
-          cursor: pointer;
-          font-size: 32px;
-          line-height: 1.2;
-          position: absolute;
-        }
+  &__content__beer-info {
+    h1 {
+      position: relative;
+      i {
+        cursor: pointer;
+        font-size: 32px;
+        line-height: 1.2;
+        position: absolute;
       }
-      p {
-        font-size: $font-size-h1;
-      }
+    }
+    p {
+      font-size: $font-size-h1;
     }
   }
 
@@ -67,12 +65,10 @@
     min-height: 180px;
     position: relative;
 
-    &__content {
-      &__beer-info {
-        h1 {
-          i {
-            left: -50px;
-          }
+    &__content__beer-info {
+      h1 {
+        i {
+          left: -50px;
         }
       }
     }
@@ -95,41 +91,30 @@
 }
 
 @include touchscreen() {
-  .details-heading {
-    &__beer-nav {
-      &:active {
-        opacity: 0.75;
-      }
+  .details-heading__beer-nav {
+    &:active {
+      opacity: 0.75;
+    }
 
-      background-color: $primary-colour;
-      i {
-        color: $header-background;
-      }
-      span {
-        display: block;
-      }
+    background-color: $primary-colour;
+    i {
+      color: $header-background;
+    }
+    span {
+      display: block;
     }
   }
-
 }
 
 @include large-screen() {
-  .details-heading {
-    &__content {
-      &__beer-info {
-        max-width: $large-content-width - $beer-image-circle-diameter - $large-margin;
-      }
-    }
+  .details-heading__content__beer-info {
+    max-width: $large-content-width - $beer-image-circle-diameter - $large-margin;
   }
 }
 
 @media (min-width: $details-layout-threshold) and (max-width: $large-screen - 1px) {
-  .details-heading {
-    &__content {
-      &__beer-info {
-        max-width: $medium-content-width - $beer-image-circle-diameter - $large-margin;
-      }
-    }
+  .details-heading__content__beer-info {
+    max-width: $medium-content-width - $beer-image-circle-diameter - $large-margin;
   }
 }
 
@@ -140,9 +125,7 @@
     grid-row-gap: $small-margin;
     width: 100%;
 
-    grid-template:
-            "beer-info  beer-info"  auto
-            "prev       next"       auto
+    grid-template: "beer-info  beer-info" auto "prev       next" auto
             / 1fr 1fr;
 
     &__content {
@@ -150,12 +133,8 @@
       min-height: 150px;
       width: 100%;
 
-      &__beer-info {
-        h1 {
-          i {
-            left: -40px;
-          }
-        }
+      &__beer-info i {
+        left: -40px;
       }
     }
 

@@ -18,11 +18,11 @@ class Favourites extends React.Component {
       content = <BeerList beers={this.props.beers}/>;
     }
     return (
-      <div className="favourites">
+      <main className="favourites">
         <div className="favourites__content app-content">
           {content}
         </div>
-      </div>
+      </main>
     );
   }
 }

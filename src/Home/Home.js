@@ -46,12 +46,12 @@ class Home extends React.Component {
     }
     
     return (
-      <div className="home">
+      <main className="home">
         <SearchBar onFilterChanged={this.onFilterChanged}/>
         <div className="home__content app-content">
           {content}
         </div>
-      </div>
+      </main>
     );
   }
 }

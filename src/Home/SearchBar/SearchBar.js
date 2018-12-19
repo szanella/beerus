@@ -3,7 +3,7 @@ import React from 'react';
 import './SearchBar.scss';
 
 const SearchBar = props => (
-  <div className="search-bar">
+  <header className="search-bar">
     <div className="search-bar__content app-content">
       <div className='search-bar__content__desktop-abv'>
         <div className='search-bar__content__desktop-abv__filler' />
@@ -35,7 +35,7 @@ const SearchBar = props => (
         </div>
       </div>
     </div>
-  </div>
+  </header>
 );
 
 export default SearchBar;

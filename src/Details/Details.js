@@ -42,7 +42,7 @@ class Details extends React.Component {
     }
 
     return (
-      <div className='details'>
+      <main className='details'>
         <DetailsHeading beer={currentBeer}
                         previousBeer={previousBeer}
                         nextBeer={nextBeer}
@@ -78,7 +78,7 @@ class Details extends React.Component {
             </div>
           </div>
         </div>
-      </div>
+      </main>
     );
   }
 }
