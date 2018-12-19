@@ -18,7 +18,31 @@
 
     & > * {
       &:first-child {
+        align-items: center;
+        display: flex;
         flex: 1 1 auto;
+      }
+    }
+
+    @include small-screen() {
+      &__nav {
+        &--mobile {
+          display: block;
+        }
+        &--desktop {
+          display: none;
+        }
+      }
+    }
+
+    @include screen-gt($small-screen) {
+      &__nav {
+        &--mobile {
+          display: none;
+        }
+        &--desktop {
+          display: block;
+        }
       }
     }
 
