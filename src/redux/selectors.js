@@ -12,6 +12,9 @@ export const getBeers = store =>
 export const getBeersLoading = store =>
   getBeersState(store) ? getBeersState(store).beersLoading : null;
 
+export const getHasMore = store =>
+  getBeersState(store) ? getBeersState(store).hasMore : null;
+
 export const getDetailsLoading = store =>
   getBeersState(store) ? getBeersState(store).detailsLoading : null;
 

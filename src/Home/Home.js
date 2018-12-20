@@ -2,9 +2,10 @@ import React from 'react';
 import BeerList from '../shared/BeerList/BeerList';
 import './Home.scss';
 import SearchBar from './SearchBar/SearchBar';
-import {getBeers, getBeersLoading} from '../redux/selectors';
+import {getBeers, getBeersLoading, getHasMore} from '../redux/selectors';
 import {connect} from 'react-redux';
 import {fetchBeersPage} from '../redux/actions';
+import BeerListLoading from '../shared/BeerListLoading/BeerListLoading';
 
 class Home extends React.Component {
   constructor(props) {
@@ -20,6 +21,7 @@ class Home extends React.Component {
     };
 
     this.onFilterChanged = this.onFilterChanged.bind(this);
+    this.onLoadMore = this.onLoadMore.bind(this);
   }
 
   componentDidMount() {
@@ -27,31 +29,46 @@ class Home extends React.Component {
   }
 
   onFilterChanged(fieldName, value) {
-    this.setState({
-      queryParams: {
-        ...this.state.queryParams,
-        [fieldName]: value,
-        page: 1
-      }
-    });
-    this.props.loadBeersPage(this.state.queryParams);
+    this.setState(
+      {
+        queryParams: {
+          ...this.state.queryParams,
+          [fieldName]: value,
+          page: 1
+        }
+      },
+      () => this.props.loadBeersPage(this.state.queryParams)
+    );
+  }
+
+  onLoadMore() {
+    this.setState(
+      {
+        queryParams: {
+          ...this.state.queryParams,
+          page: this.state.queryParams.page + 1
+        }
+      },
+      () => this.props.loadBeersPage(this.state.queryParams)
+    );
   }
 
   render() {
-    let content;
-    if (this.props.beersLoading) {
-      content = <div>Loading</div>
-    } else {
-      content = <BeerList beers={this.props.beers}/>;
-    }
-    
+    const {beers, beersLoading, hasMore} = this.props;
+
     return (
-      <div className="home">
+      <main className="home">
         <SearchBar onFilterChanged={this.onFilterChanged}/>
         <div className="home__content app-content">
-          {content}
+          {beers.length > 0 && <BeerList beers={beers}/>}
+          {beersLoading && <BeerListLoading />}
+          {!beersLoading && hasMore && (
+            <div className="home__content__load-more">
+              <button onClick={this.onLoadMore}>Load more</button>
+            </div>
+          )}
         </div>
-      </div>
+      </main>
     );
   }
 }
@@ -59,9 +76,11 @@ class Home extends React.Component {
 const mapStateToProps = state => {
   const beers = getBeers(state);
   const beersLoading = getBeersLoading(state);
+  const hasMore = getHasMore(state);
   return {
     beers,
-    beersLoading
+    beersLoading,
+    hasMore
   };
 };
 

@@ -10,6 +10,8 @@ const initialState = {
   allIds: [],
   byIds: {},
   beersLoading: false,
+  hasMore: true,
+
   currentBeer: {},
   previousBeer: null,
   nextBeer: null,
@@ -30,14 +32,15 @@ export default function (state = initialState, action) {
     }
     case RECEIVE_BEERS_PAGE:
     case RECEIVE_FAVOURITE_BEERS: {
-      const {beers} = action;
+      const {beers, query} = action;
       let byIds = state.byIds;
       beers.forEach(beer => byIds[beer.id] = beer);
       return {
         ...state,
         allIds: [...state.allIds, ...beers.map(beer => beer.id)],
         byIds: byIds,
-        beersLoading: false
+        beersLoading: false,
+        hasMore: query && beers.length > 0 && beers.length === query.per_page
       };
     }
     case REQUEST_BEER_DETAILS: {

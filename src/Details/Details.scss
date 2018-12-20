@@ -37,88 +37,70 @@
 }
 
 @media (min-width: $details-layout-threshold) {
-  .details {
-    &__top {
-      justify-content: space-between;
-      min-height: ($beer-image-circle-diameter * 1.5) / 2;
+  .details__top {
+    justify-content: space-between;
+    min-height: ($beer-image-circle-diameter * 1.5) / 2;
 
-      .beer-image {
-        margin-top: -$medium-margin - ($beer-image-circle-diameter / 2);
-        z-index: 2;
-      }
+    .beer-image {
+      margin-top: -$medium-margin - ($beer-image-circle-diameter / 2);
+      z-index: 2;
     }
   }
 }
 
 @include large-screen() {
-  .details {
-    &__top {
-      &__description {
-        max-width: $large-content-width - $beer-image-circle-diameter - $large-margin;
-      }
-    }
+  .details__top__description {
+    max-width: $large-content-width - $beer-image-circle-diameter - $large-margin;
   }
 }
 
 @media (min-width: $details-layout-threshold) and (max-width: $large-screen - 1px) {
-  .details {
-    &__top {
-      &__description {
-        max-width: $medium-content-width - $beer-image-circle-diameter - $large-margin;
-      }
-    }
+  .details__top__description {
+    max-width: $medium-content-width - $beer-image-circle-diameter - $large-margin;
   }
 }
 
 @media (max-width: $details-layout-threshold - 1px) {
-  .details {
-    &__top {
-      flex-flow: column-reverse;
-      align-items: center;
+  .details__top {
+    flex-flow: column-reverse;
+    align-items: center;
 
-      &__description {
-        margin-top: $medium-margin;
-      }
+    &__description {
+      margin-top: $medium-margin;
+    }
 
-      .beer-image {
-        margin: ($beer-image-circle-diameter * 0.25 + $small-margin) 0;
-      }
+    .beer-image {
+      margin: ($beer-image-circle-diameter * 0.25 + $small-margin) 0;
     }
   }
 }
 
 @include screen-gt($small-screen) {
-  .details {
-    &__banner {
-      height: $list-row-height;
+  .details__banner {
+    height: $list-row-height;
 
-      span {
-        flex: 0 0 auto;
-        margin: 0 $medium-margin;
-      }
+    span {
+      flex: 0 0 auto;
+      margin: 0 $medium-margin;
     }
   }
 }
 
 @include medium-screen() {
-  .details {
-    &__banner {
-      span {
-        margin: 0 $small-margin;
-      }
+  .details__banner {
+    span {
+      margin: 0 $small-margin;
     }
   }
 }
 
 @include small-screen() {
-  .details {
-    &__banner {
-      flex-direction: column;
-      padding: $smaller-margin 0;
+  .details__banner {
+    flex-wrap: wrap;
+    padding: $smaller-margin $medium-margin;
 
-      span {
-        margin: $smaller-margin 0;
-      }
+    span {
+      margin: $smaller-margin $small-margin;
     }
   }
 }

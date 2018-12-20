@@ -18,7 +18,7 @@ class Header extends React.Component {
 
   render() {
     return (
-      <div className='header'>
+      <header className='header'>
         <div className='header__content app-content'>
           <div>
             {
@@ -32,7 +32,7 @@ class Header extends React.Component {
           <NavLink to="/random" className='header__content__nav--mobile'>Random</NavLink>
           <NavLink to="/favourites">Favourites</NavLink>
         </div>
-      </div>
+      </header>
     );
   }
 }
