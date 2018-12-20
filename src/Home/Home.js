@@ -5,6 +5,7 @@ import SearchBar from './SearchBar/SearchBar';
 import {getBeers, getBeersLoading, getHasMore} from '../redux/selectors';
 import {connect} from 'react-redux';
 import {fetchBeersPage} from '../redux/actions';
+import BeerListLoading from '../shared/BeerListLoading/BeerListLoading';
 
 class Home extends React.Component {
   constructor(props) {
@@ -60,7 +61,7 @@ class Home extends React.Component {
         <SearchBar onFilterChanged={this.onFilterChanged}/>
         <div className="home__content app-content">
           {beers.length > 0 && <BeerList beers={beers}/>}
-          {beersLoading && <div>Loading</div>}
+          {beersLoading && <BeerListLoading />}
           {!beersLoading && hasMore && (
             <div className="home__content__load-more">
               <button onClick={this.onLoadMore}>Load more</button>
